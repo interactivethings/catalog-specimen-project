@@ -1,6 +1,6 @@
 {
   "name": "catalog-specimen-project",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "Project.js",
   "scripts": {
@@ -11,18 +11,17 @@
   "repository": "https://github.com/interactivethings/catalog-specimen-project",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "6.4.5",
+    "babel-cli": "6.11.4",
     "babel-preset-es2015": "6.3.13",
     "babel-preset-es2015-rollup": "1.1.1",
-    "babel-preset-react": "6.3.13",
-    "babel-preset-stage-2": "6.3.13",
-    "rollup": "0.25.2",
+    "babel-preset-react": "6.11.1",
+    "babel-preset-stage-2": "6.13.0",
+    "rollup": "0.34.7",
     "rollup-plugin-babel": "2.3.9",
     "rollup-plugin-commonjs": "3.3.1",
     "rollup-plugin-node-resolve": "^2.0.0",
-    "rollup-plugin-npm": "1.4.0",
     "rollup-plugin-replace": "1.1.0",
-    "rollup-plugin-uglify": "0.1.0"
+    "rollup-plugin-uglify": "1.0.1"
   },
   "dependencies": {
     "catalog": "^2.0.2",
