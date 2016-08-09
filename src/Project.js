@@ -49,7 +49,8 @@ const isImage = (path) => imagePathRe.test(path);
 
 class Project extends React.Component {
   render() {
-    let {theme, body} = this.props;
+    const {catalog: {theme}} = this.props;
+    let {body} = this.props;
     const projectConfig = bodyToProps(body);
     const {index, scrolling, files, size} = projectConfig;
 
@@ -58,15 +59,29 @@ class Project extends React.Component {
 
     return (
       <div className='cg-Specimen-Project' style={styles.container}>
-        <iframe
-          src={index.source}
-          scrolling={scrolling}
-          marginHeight='0'
-          marginWidth='0'
-          style={[styles.frame, size]}
-        />
+        { size &&
+          <iframe
+            src={index.source}
+            scrolling={scrolling}
+            marginHeight='0'
+            marginWidth='0'
+            style={[{...styles.frame}, size]}
+          />
+
+          ||
+
+          (<div style={{display: 'flex', flexFlow: 'row wrap'}}>
+            <iframe src={index.source} scrolling={scrolling} marginHeight='0' marginWidth='0' style={[{...styles.frame, marginBottom: '20px'},
+            {width: '100%', height: '700px'}]}/>
+            <iframe src={index.source} scrolling={scrolling} marginHeight='0' marginWidth='0' style={[{...styles.frame, margin: '0 10px 20px 0'},
+            {width: '375px', height: '667px'}]}/>
+            <iframe src={index.source} scrolling={scrolling} marginHeight='0' marginWidth='0' style={[{...styles.frame, margin: '0 0 20px 10px'},
+            {width: '320px', height: '568px'}]}/>
+          </div>)
+        }
         <div style={sourceFiles.length > 1 ? styles.tabBar : null}>
           <a key={'new-window'} style={styles.link} href={index.source} target='_blank'>Open in new tab</a>
+          <a key={'responsive-testbed'} style={styles.link} href={'/tools/content_testbed.html?file=' + index.source}>Open in responsive testbed</a>
           <a key={'download'} style={styles.link} href='#' onClick={this.download.bind(this, projectConfig)}>Download as .zip</a>
           <TabbedSourceView
             rootPath={fileUtils.dirname(index.source)}

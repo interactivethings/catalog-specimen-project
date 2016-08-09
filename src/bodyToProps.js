@@ -6,25 +6,25 @@ const DEFAULTS = {
   name: 'project',
   files: {},
   scrolling: 'no',
-  size: {
-    height: 500,
-    width: '100%'
-  }
+  size: null
 };
 
 function parseSize(size) {
-  let {width, height} = size;
-  if (typeof height === 'number') {
-    height = height + 'px';
+  if (size) {
+    let {width, height} = size;
+    if (typeof height === 'number') {
+      height = height + 'px';
+    }
+    if (typeof width === 'number') {
+      width = width + 'px';
+    }
+    return {width: width, height: height};
   }
-  if (typeof width === 'number') {
-    width = width + 'px';
-  }
-  return { width: width, height: height };
+  return null;
 }
 
-export default (body) => {
-  let config = R.merge(DEFAULTS, body);
+export default (rawBody) => {
+  let config = R.merge(DEFAULTS, rawBody);
 
   let index = null;
 
