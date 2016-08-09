@@ -1,12 +1,14 @@
-.PHONY: lib clean
+.PHONY: lib clean install
 
 all: ProjectSpecimen.js
+
+node_modules: package.json
+	npm install
+
+install: node_modules
 
 clean:
 	@rm -rf lib ProjectSpecimen.js
 
-lib: clean
-	@$$(npm bin)/babel src --ignore __tests__ --out-dir $@
-
-ProjectSpecimen.js: clean
+ProjectSpecimen.js: install clean
 	@NODE_ENV=production $$(npm bin)/rollup ./src/Project.js --config=./rollup.config.js --output=./$@
