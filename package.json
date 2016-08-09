@@ -8,6 +8,7 @@
   },
   "keywords": [],
   "author": "",
+  "repository": "https://github.com/interactivethings/catalog-specimen-project",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.4.5",
@@ -25,6 +26,9 @@
   "dependencies": {
     "catalog": "^2.0.2",
     "jszip": "^2.5.0",
-    "radium": "^0.16.5"
+    "radium": "^0.16.5",
+    "ramda": "^0.22.1",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
   }
 }
