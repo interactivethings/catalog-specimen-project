@@ -71,11 +71,11 @@ class Project extends React.Component {
           ||
 
           (<div style={{display: 'flex', flexFlow: 'row wrap'}}>
-            <iframe src={index.source} scrolling={scrolling} marginHeight='0' marginWidth='0' style={[{...styles.frame, marginBottom: '20px'},
+            <iframe src={index.source} marginHeight='0' marginWidth='0' style={[{...styles.frame, marginBottom: '20px', overflowY: 'scroll'},
             {width: '100%', height: '700px'}]}/>
-            <iframe src={index.source} scrolling={scrolling} marginHeight='0' marginWidth='0' style={[{...styles.frame, margin: '0 10px 20px 0'},
-            {width: '375px', height: '667px'}]}/>
-            <iframe src={index.source} scrolling={scrolling} marginHeight='0' marginWidth='0' style={[{...styles.frame, margin: '0 0 20px 10px'},
+            <iframe src={index.source} marginHeight='0' marginWidth='0' style={[{...styles.frame, margin: '0 10px 20px 0', overflowY: 'scroll'},
+            {width: '516px', height: '667px'}]}/>
+            <iframe src={index.source} marginHeight='0' marginWidth='0' style={[{...styles.frame, margin: '0 0 20px 10px', overflowY: 'scroll'},
             {width: '320px', height: '568px'}]}/>
           </div>)
         }
