@@ -108,10 +108,6 @@ export default function ProjectConfigurator(opts) {
       });
     }
 
-    filterMatching(list, prop) {
-      (d) => R.contains(d[prop], list);
-    }
-
     parseExposedFiles(source) {
       let doc = new DOMParser().parseFromString(source, 'text/html');
       let files = [];
@@ -177,7 +173,7 @@ export default function ProjectConfigurator(opts) {
           })
           .then((response) => response.text())
           .then((source) => {
-            let content = R.contains(this.sourceViewFiles(projectConfig), file) ? normalizeReferences(rootPath, projectConfig.files, source) : source;
+            let content = R.any((f => f.source === file.source), this.sourceViewFiles(projectConfig)) ? normalizeReferences(rootPath, projectConfig.files, source) : source;
             if (file === projectConfig.index) {
               virtualFiles = virtualFiles.concat(this.parseExposedFiles(content));
               if (file.template) {
