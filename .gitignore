@@ -1,4 +1,5 @@
 .DS_Store
+.projectile
 node_modules
 ProjectSpecimen.js
 ProjectSpecimen.min.js
