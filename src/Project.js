@@ -167,6 +167,7 @@ export default function ProjectConfigurator(opts) {
           // it further before adding it to the zip file.
 
           return fetch(file.source, {
+            credentials: 'include',
             headers: {
               Accept: 'text/plain,*/*'
             }
@@ -178,6 +179,7 @@ export default function ProjectConfigurator(opts) {
               virtualFiles = virtualFiles.concat(this.parseExposedFiles(content));
               if (file.template) {
                 return fetch(file.template, {
+                  credentials: 'include',
                   headers: {
                     Accept: 'text/plain,*/*'
                   }

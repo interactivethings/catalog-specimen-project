@@ -121,7 +121,7 @@ class Project extends React.Component {
     }
     let file = sourceFiles[this.state.tab];
 
-    fetch(file.source)
+    fetch(file.source, {credentials: 'include'})
       .then((response) => response.text())
       .then((text) => {
         const sourceCode = this.parseSourceCode(text);
